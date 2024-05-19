@@ -29,7 +29,7 @@ const ChartHumid = ({ aspect, title }) => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://127.0.0.1:8000/get_data_chart/");
+      const response = await axios.get("http://127.0.0.1:8080/get_data_chart/");
       const formattedData = response.data.map(item => {
         // Parse the timestamp string into a JavaScript Date object
         const timestamp = new Date(item.timestamp);

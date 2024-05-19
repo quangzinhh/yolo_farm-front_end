@@ -19,7 +19,7 @@ const CityComponent = () => {
 
     const newLightStatus = isLightOn ? 0 : 1;
 
-    fetch('http://127.0.0.1:8000/control_light/', {
+    fetch('http://127.0.0.1:8080/control_light/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
