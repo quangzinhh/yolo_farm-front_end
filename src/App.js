@@ -19,7 +19,6 @@ function App() {
           <Route path="/" element={<ProtectedRoute element={<Home />} />} />
           <Route path="/login" element={<Login />} />
           <Route path="/infor" element={<ProtectedRoute element={<Logout />} />} />
-          
           <Route path="/users">
             <Route index element={<ProtectedRoute element={<List />} />} />
             <Route

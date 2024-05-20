@@ -4,34 +4,51 @@ import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import LandscapeIcon from '@mui/icons-material/Landscape';
 import DeviceThermostatIcon from '@mui/icons-material/DeviceThermostat';
 import React, { useState, useEffect } from 'react';
+import adafruitService from './adafruitservice';
 import axios from 'axios';
 
 const Widget = ({ type }) => {
-  const [temperature, setTemperature] = useState(null);
+const [temperature, setTemperature] = useState(null);
 const [airHumidity, setAirHumidity] = useState(null);
 const [sunLight, setSunLight] = useState(null);
 const [soilHumidity, setSoilHumidity] = useState(null);
 
-useEffect(() => {
-  const fetchData = async () => {
-    try {
-        const response = await axios.get('http://127.0.0.1:8080/get_data/');
-        if (response.data) {
-            console.log(response.data)
-            setTemperature(response.data.temperature);
-            setAirHumidity(response.data.airhumid);
-            setSunLight(response.data.sunlight);
-            setSoilHumidity(response.data.soilhumid);
-        }
-    } catch (error) {
-        console.error('Error fetching data:', error);
-    }
-}
+// useEffect(() => {
+//   const fetchData = async () => {
+//     try {
+//         const response = await axios.get('http://127.0.0.1:8000/get_data/');
+//         if (response.data) {
+//             console.log(response.data)
+//             setTemperature(response.data.temperature);
+//             setAirHumidity(response.data.airhumid);
+//             setSunLight(response.data.sunlight);
+//             setSoilHumidity(response.data.soilhumid);
+//         }
+//     } catch (error) {
+//         console.error('Error fetching data:', error);
+//     }
+// }
 
-  const interval = setInterval(fetchData, 3000);
+//   const interval = setInterval(fetchData, 3000);
 
-  return () => clearInterval(interval);
-}, []);
+//   return () => clearInterval(interval);
+// }, []);
+  useEffect(() => {
+    const fetchData = async () => {
+      const temperatureData = await adafruitService.getTemperature();
+      const airHumidityData = await adafruitService.getAirHumidity();
+      const soilHumidityData = await adafruitService.getSoilHumidity();
+      const sunLightData = await adafruitService.getSunLight();
+
+      setTemperature(temperatureData?.value || 'N/A');
+      setAirHumidity(airHumidityData?.value || 'N/A');
+      setSoilHumidity(soilHumidityData?.value || 'N/A');
+      setSunLight(sunLightData?.value || 'N/A');
+    };
+
+    fetchData();
+  }, []);
+
 
 useEffect(() => {
   const fetchData = async () => {
