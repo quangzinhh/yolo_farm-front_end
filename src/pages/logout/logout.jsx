@@ -1,18 +1,21 @@
 import React from 'react';
+import Sidebar from '../../components/sidebar/Sidebar';
+import './logout.scss'
 
 const Logout = () => {
-  const logout = () => {
-    // Xóa token khỏi localStorage
-    localStorage.removeItem('token');
-
-    // Thực hiện các bước khác khi đăng xuất, ví dụ: chuyển hướng đến trang đăng nhập
-    // window.location.href = '/login'; // Chuyển hướng đến trang đăng nhập
-    // hoặc sử dụng thư viện định tuyến để điều hướng người dùng đến trang đăng nhập
+    const logout = () => {
+      localStorage.removeItem('token');
+      window.location.reload();
+    };
+  
+    return (
+      <div className="app-container">
+        <Sidebar />
+        <div className="main-content">
+          <button onClick={logout}>Đăng Xuất</button>
+        </div>
+      </div>
+    );
   };
-
-  return (
-    <button onClick={logout}>Đăng Xuất</button>
-  );
-};
-
-export default Logout;
+  
+  export default Logout;

@@ -1,10 +1,12 @@
 import "./login.scss"
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate(); // Tạo hàm điều hướng
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -18,10 +20,11 @@ const Login = () => {
       // Lưu token vào localStorage hoặc xử lý theo cách bạn muốn
       localStorage.setItem('token', response.data.token);
 
-      // Điều hướng đến trang chủ hoặc trang khác
+      // Điều hướng đến trang chủ
+      navigate('/'); // Chuyển hướng đến trang "/"
     } catch (error) {
-        console.error('Đăng nhập thất bại:', error);
-        alert('Đăng nhập thất bại, vui lòng thử lại.');
+      console.error('Đăng nhập thất bại:', error);
+      alert('Đăng nhập thất bại, vui lòng thử lại.');
     }
   };
 

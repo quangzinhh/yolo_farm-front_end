@@ -35,8 +35,11 @@ const Sidebar = () => {
           
           <p className="title">USER</p>
           <li>
+            <Link to="/infor" style={{ textDecoration: "none" }}>
             <AccountCircleOutlinedIcon className="icon" />
             <span>Profile</span>
+            </Link>
+            
           </li>
           <li>
             <ExitToAppIcon className="icon" />
