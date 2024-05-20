@@ -86,7 +86,7 @@
   width: 150px;
   height: 100px;
   margin: 0 auto;
-  background: rgb(161, 224, 242) ;
+  background: #b19dfc ;
   border-radius: 15px;
 }
 
@@ -94,7 +94,7 @@
   display: flex; /* Hiển thị thành phần thanh bar theo chiều ngang */
   justify-content: center; /* Căn giữa theo chiều ngang */
   align-items: center; /* Căn giữa theo chiều dọc */
-  width: 100px;
+  width: 110px;
   height: 40px; /* Độ dày của thanh bar */
   background-color: #f0f0f0;
   cursor: pointer;
@@ -119,4 +119,139 @@
 .light.off {
   background-color: red;
 }
+
+.widget {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  padding: 10px;
+  -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+  box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+  border-radius: 10px;
+
+  .left,
+  .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .title {
+      font-weight: bold;
+      font-size: 14px;
+      color: rgb(160, 160, 160);
+    }
+
+    .counter {
+      font-size: 28px;
+      font-weight: 300;
+    }
+
+    .link {
+      width: max-content;
+      font-size: 12px;
+      border-bottom: 1px solid gray;
+    }
+
+    .percentage {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+
+      &.positive {
+        color: green;
+      }
+      &.negative {
+        color: red;
+      }
+    }
+
+    .icon {
+      font-size: 18px;
+      padding: 5px;
+      border-radius: 5px;
+      align-self: flex-end;
+    }
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: row;
+  gap: 10px; /* Khoảng cách giữa các cột */
+  justify-content: center; /* Căn giữa các phần tử theo chiều ngang */
+  align-items: center; /* Căn giữa các phần tử theo chiều dọc */
+}
+
+.form-select {
+  width: auto; /* Điều chỉnh chiều rộng theo nội dung */
+  padding: 10px; /* Thêm khoảng đệm bên trong các thẻ select */
+  border: 1px solid #ced4da; /* Đường viền */
+  border-radius: 4px; /* Bo tròn các góc */
+  background-color: #fff; /* Màu nền */
+  color: #495057; /* Màu chữ */
+}
+
+.form-select:focus {
+  border-color: #80bdff; /* Màu đường viền khi focus */
+  outline: 0; /* Xóa viền mặc định */
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Hiệu ứng bóng */
+}
+
+.saveTime {
+  background-color: #b19dfc;
+  margin-left: 5px;
+  border: none;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.schedule-table {
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  text-align: center;
+
+  th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+
+  th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  tr:hover {
+    background-color: #f1f1f1;
+  }
+
+  .delete-btn {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .delete-btn:hover {
+    background-color: #ff1a1a;
+  }
+}
+
+.schedule-heading {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+
+
 

@@ -86,4 +86,14 @@
   .react-time-picker__clock button:focus {
     outline: none;
   }
+
+  label.widget {
+    box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+    border-radius: 10px;
+    height: 20px !important;
+    width: 300px !important;
+    justify-content: center;
+    margin: 5px;
+    margin-bottom: 20px;
+  }
   
