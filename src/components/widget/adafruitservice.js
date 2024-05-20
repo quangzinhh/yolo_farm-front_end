@@ -1,9 +1,7 @@
 // src/adafruitService.js
 import axios from 'axios';
 
-const AIO_USERNAME = "quangvinh03";
-const AIO_KEY = "aio_efTR84Fy2FscnuSmxJNPaUiiKgIg";
-const AIO_FEEDS = ["temperature", "airhumid", "soilhumid", "sunlight"];
+
 
 const getData = async (feed) => {
   try {
